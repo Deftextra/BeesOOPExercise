@@ -1,0 +1,66 @@
+﻿@page "/"
+@model BeesOOPExercise.Pages.BeeAppModel;
+
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <style>
+    
+        body {
+         margin: 10px;
+         font-size: large;
+        }
+        
+        body > h1 {
+            text-align: center;
+        }
+        
+        li > div {
+            flex: 1 1 0;
+            margin-left: 10px;
+            padding: 10px;
+        }
+    </style>    
+</head>
+
+<body>
+
+<h1 class="display-4 "> Bees </h1>
+<ul class="list-group">
+
+    @foreach (var bee in Model.BeesData.Bees)
+    {
+        <li class="list-group-item d-flex   @(bee.IsDead() ? "bg-danger" : "")">
+            
+            <div class="border border-info"> Type: @bee.GetType().Name </div>
+            <div class="border border-info p-1">
+                Health: @(bee.Health)%
+            </div>
+
+            @if (bee.IsDead())
+            {
+                <div class="border border-info"> Status: is Dead</div>
+            }
+            else
+            {
+                <div class="border border-info"> Status: is alive</div>
+            }
+        </li>
+    }
+</ul>
+
+<a class="btn btn-primary mt-2" asp-page-handler="Damage">Damage</a>
+
+</body>
+</html>
+

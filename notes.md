@@ -7,12 +7,18 @@
   * isDead() - overload
 
 * Death points:
- * Worker = 70%
- * Drone = 50%
- * Queen = 20%
+  * Worker = 70%
+  * Drone = 50%
+  * Queen = 20%
+
+### Refactor
+
+* bee classes have the same logic. Use decorator pattern to create different bees, by passing in different Death points in construtor.
 
 
-# part 2
+
+
+## part 2
 
 We will use a single razor page to create the front end.
 
